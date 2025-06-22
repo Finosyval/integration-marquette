@@ -27,35 +27,39 @@ const Training = () => {
       </div>
 
       {/* Content */}
-      <div className="relative container mx-auto px-8 py-16 text-white">
+      <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
         {/* Div 0 - Titre */}
-        <div className="text-center mb-8">
-          <h2 className="text-2xl font-bold mt-6 mb-4">Les Formations aux métiers du CARGO</h2>
-          <div className="text-xs space-y-1">
+        <div className="text-center mb-8 mt-12 md:mt-24">
+          <h2 className="text-xl sm:text-2xl font-bold mb-4 text-white">Les Formations aux métiers du CARGO</h2>
+          <div className="text-xs sm:text-sm space-y-1 text-white">
             <p>Encore et toujours un texte que</p>
             <p>je m'efforce de lire sans succès, ah décidément</p>
           </div>
         </div>
 
         {/* Contenu principal */}
-        <div className="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8 max-w-4xl mx-auto">
+        <div className="flex flex-col md:flex-row justify-center items-center gap-8 max-w-4xl mx-auto px-4">
           {/* Div 1 - Texte + bouton */}
-          <div className="mb-6 md:mb-0 text-center md:text-left md:w-1/2">
-            <p className="mb-4 text-lg">Notre IA vous aide à trouver la formation qui vous correspond.</p>
-            <button className="bg-gradient-to-r from-blue-400 to-blue-800 text-white-600 px-4 py-2 rounded-lg shadow-md hover:bg-orange-50 transition">
+          <div className="w-full md:w-1/2 text-center md:text-left space-y-6">
+            <p className="text-lg sm:text-xl text-white">Notre IA vous aide à trouver la formation qui vous correspond.</p>
+            <button className="w-full sm:w-auto bg-gradient-to-r from-blue-400 to-blue-800 text-white px-6 py-3 rounded-lg shadow-md hover:opacity-90 transition text-base sm:text-lg">
               C'est parti
             </button>
           </div>
 
           {/* Div 2 - Image */}
-          <div className="md:w-1/2 flex justify-center">
-            <img src={ordi} alt="ordinateur" className="w-64 md:w-72 max-w-full" />
+          <div className="w-full md:w-1/2 flex justify-center items-center">
+            <img 
+              src={ordi} 
+              alt="ordinateur" 
+              className="w-[200px] sm:w-[250px] md:w-[300px] max-w-full object-contain" 
+            />
           </div>
         </div>
 
         {/* Bouton en bas centré */}
-        <div className="flex justify-center mt-8">
-          <button className="bg-gradient-to-r from-blue-400 to-blue-800 text-white-600 px-6 py-2 rounded-lg shadow-md hover:bg-orange-50 transition">
+        <div className="flex justify-center mt-12 px-4">
+          <button className="w-full sm:w-auto bg-gradient-to-r from-blue-400 to-blue-800 text-white px-6 py-3 rounded-lg shadow-md hover:opacity-90 transition text-base sm:text-lg max-w-[300px]">
             il s'agit encore d'un texte que je n'arrive pas à lire
           </button>
         </div>

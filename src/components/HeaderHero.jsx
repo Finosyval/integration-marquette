@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import cargo from '@/assets/cargo.png';
 
 const HeaderHero = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
     <div className="relative w-screen overflow-hidden">
       {/* Blob SVG en arrière-plan */}
@@ -73,46 +75,102 @@ const HeaderHero = () => {
       {/* Contenu */}
       <div className="w-full min-h-[400px] md:min-h-[450px] lg:min-h-[500px] relative">
         {/* Header */}
-        <header className="bg-transparent w-full">
+        <header className="bg-transparent w-full relative z-50">
           <div className="w-[90%] lg:w-[80%] mx-auto py-4">
-            <nav className="flex items-center justify-center gap-4 md:gap-6">
+            {/* Version Mobile */}
+            <div className="block lg:hidden">
+              {/* Barre supérieure avec logo et hamburger */}
+              <div className="flex justify-between items-center">
+                <img
+                  src={cargo}
+                  alt="CargoLogo"
+                  className="w-8 h-8 object-contain"
+                />
+                <button 
+                  onClick={() => setIsMenuOpen(!isMenuOpen)}
+                  className="text-white focus:outline-none"
+                  aria-label="Menu"
+                >
+                  <svg 
+                    className="w-8 h-8" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24"
+                  >
+                    {isMenuOpen ? (
+                      <path 
+                        strokeLinecap="round" 
+                        strokeLinejoin="round" 
+                        strokeWidth={2} 
+                        d="M6 18L18 6M6 6l12 12"
+                      />
+                    ) : (
+                      <path 
+                        strokeLinecap="round" 
+                        strokeLinejoin="round" 
+                        strokeWidth={2} 
+                        d="M4 6h16M4 12h16M4 18h16"
+                      />
+                    )}
+                  </svg>
+                </button>
+              </div>
+
+              {/* Menu mobile déroulant */}
+              <div 
+                className={`${
+                  isMenuOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'
+                } transition-all duration-300 ease-in-out overflow-hidden bg-blue-900/90 backdrop-blur-sm mt-4 rounded-lg`}
+              >
+                <nav className="flex flex-col items-center py-4 space-y-4">
+                  <a className="font-bold text-white text-base hover:text-gray-200 transition-colors">Option 1engras</a>
+                  <a className="text-white text-base hover:text-gray-200 transition-colors">Option2plusoumoinslong</a>
+                  <a className="text-white text-base hover:text-gray-200 transition-colors">Option3encorepluslonguequeopt2</a>
+                  <a className="text-white text-base hover:text-gray-200 transition-colors">sizelikeopt1</a>
+                  <span className="text-orange-500">🔸</span>
+                </nav>
+              </div>
+            </div>
+
+            {/* Version Desktop */}
+            <nav className="hidden lg:flex items-center justify-center gap-6">
               <img
                 src={cargo}
                 alt="CargoLogo"
                 className="w-10 h-10 object-contain"
               />
-              <a className="font-bold text-white hover:text-gray-200 transition-colors">Option 1engras</a>
-              <a className="text-white hover:text-gray-200 transition-colors">Option2plusoumoinslong</a>
-              <a className="text-white hover:text-gray-200 transition-colors">Option3encorepluslonguequeopt2</a>
-              <a className="text-white hover:text-gray-200 transition-colors">sizelikeopt1</a>
+              <a className="font-bold text-white text-base hover:text-gray-200 transition-colors">Option 1engras</a>
+              <a className="text-white text-base hover:text-gray-200 transition-colors">Option2plusoumoinslong</a>
+              <a className="text-white text-base hover:text-gray-200 transition-colors">Option3encorepluslonguequeopt2</a>
+              <a className="text-white text-base hover:text-gray-200 transition-colors">sizelikeopt1</a>
               <span className="text-orange-500">🔸</span>
             </nav>
           </div>
         </header>
 
         {/* Hero */}
-        <div className="max-w-3xl mx-auto text-center flex items-center py-4 px-4">
-          <div>
-            <h1 className="text-orange-500 text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+        <div className="max-w-3xl mx-auto text-center flex flex-col md:flex-row items-center py-4 px-4">
+          <div className="mb-6 md:mb-0">
+            <h1 className="text-orange-500 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
               Votre Job board 100%, dédié au secteur CARGO
             </h1>
-            <p className="mb-6 text-white text-lg md:text-xl">
+            <p className="mb-6 text-white text-base sm:text-lg md:text-xl">
               Découvrez tous les jobs disponibles, Vite Cargo !
             </p>
           </div>
-          <div className="w-80 md:w-[30px] lg:w-8"></div>
-          <div className="flex-col space-y-2">
-            <div className="flex space-x-2">
+          <div className="w-full md:w-[30px] lg:w-8"></div>
+          <div className="flex-col space-y-2 w-full md:w-auto">
+            <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
               <input
                 type="text"
                 placeholder="Recherchez un job"
-                className="px-4 py-2 rounded w-64 text-black bg-white/90 backdrop-blur-sm focus:bg-white transition-colors"
+                className="px-4 py-2 rounded w-full sm:w-64 text-black bg-white/90 backdrop-blur-sm focus:bg-white transition-colors"
               />
               <button className="bg-orange-500 hover:bg-orange-600 px-4 py-2 rounded text-white transition-colors">
                 Rechercher
               </button>
             </div>
-            <button className="text-white px-6 py-2 rounded-lg shadow-md hover:opacity-90 transition bg-gradient-to-r from-blue-400 to-blue-800">
+            <button className="w-full sm:w-auto text-white px-6 py-2 rounded-lg shadow-md hover:opacity-90 transition bg-gradient-to-r from-blue-400 to-blue-800">
               un cont enu que onnelipat
             </button>
           </div>
