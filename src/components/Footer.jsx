@@ -5,17 +5,22 @@ import mcdo from '@/assets/mcdo.png';
 import ubereats from '@/assets/ubereats.png';
 
 const Footer = () => {
-  const logos = [
-    cargo,
-   adidas, mcdo,ubereats
-  ];
+  const logos = [cargo, adidas, mcdo, ubereats];
 
   return (
-    <footer className=" py-10 text-center">
-      <div className="flex flex-wrap justify-center items-center gap-8">
-        {logos.map((logo, index) => (
-          <img key={index} src={logo} alt="partner logo" className="h-12 object-contain mx-12 " />
-        ))}
+    <footer className="py-6 sm:py-10">
+      <div className="container mx-auto px-2 sm:px-4">
+        <div className="grid grid-cols-4 gap-2 sm:gap-6 md:gap-8 items-center">
+          {logos.map((logo, index) => (
+            <div key={index} className="w-full flex justify-center px-1 sm:px-4">
+              <img 
+                src={logo} 
+                alt="partner logo" 
+                className="h-6 sm:h-10 md:h-12 object-contain hover:opacity-80 transition-opacity" 
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </footer>
   );

@@ -59,7 +59,7 @@ const Companies = () => {
       </div>
 
       {/* Content */}
-      <div className="relative container mx-auto px-8 text-center flex flex-col space-y-10">
+      <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col space-y-10">
         <h2 className="text-blue-700 text-2xl font-bold pt-10">Les Entreprises qui recrutent</h2>
         <div>
           <p>Ceci est un texte que je n&apos;arrive pas à lire</p>
@@ -71,7 +71,7 @@ const Companies = () => {
           {companyData.map((company, index) => (
             <div
               key={index}
-              className="relative w-72 h-96 rounded-lg shadow-lg overflow-hidden"
+              className="relative w-full sm:w-72 h-96 rounded-lg shadow-lg overflow-hidden"
               style={{
                 backgroundImage: `url(${entreprise})`,
                 backgroundSize: 'cover',
@@ -82,8 +82,8 @@ const Companies = () => {
               <div className="absolute bottom-0 h-[70%] w-full bg-white z-10 px-4 pt-16 text-left">
                 <h3 className="text-lg font-bold text-gray-800">{company.name}</h3>
                 <p className="text-sm text-gray-700 mt-2">{company.description}</p>
-                <div className="absolute bottom-[10%] left-1/2 transform -translate-x-1/2">
-                  <button className="text-white w-[150px] px-4 py-2 rounded shadow hover:opacity-90 transition bg-gradient-to-r from-blue-400 to-blue-800">
+                <div className="absolute bottom-[10%] left-1/2 transform -translate-x-1/2 w-full px-4">
+                  <button className="w-full sm:w-[150px] text-white px-4 py-2 rounded shadow hover:opacity-90 transition bg-gradient-to-r from-blue-400 to-blue-800">
                     Voir
                   </button>
                 </div>
@@ -98,7 +98,7 @@ const Companies = () => {
             </div>
           ))}
         </div>
-        <button className="text-white w-[35%] mx-auto px-4 py-2 rounded shadow hover:opacity-90 transition bg-gradient-to-r from-orange-400 to-orange-800 mb-10">
+        <button className="w-full sm:w-[35%] mx-auto px-4 py-2 rounded shadow hover:opacity-90 transition bg-gradient-to-r from-orange-400 to-orange-800 mb-10 max-w-md">
           il s&apos;agit encore d&apos;un texte que je n&apos;arrive pas à lire
         </button>
       </div>

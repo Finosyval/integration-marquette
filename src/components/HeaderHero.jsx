@@ -6,75 +6,74 @@ const HeaderHero = () => {
 
   return (
     <div className="relative w-screen overflow-hidden">
-      {/* Blob SVG en arrière-plan */}
-      <svg 
-        className="absolute top-0 left-0 w-full h-full"
-        viewBox="0 0 1000 400" 
-        preserveAspectRatio="xMidYMid slice"
-        style={{
-          zIndex: -1,
-          minWidth: '100%',
-          minHeight: '100%',
-        }}
-      >
-        <defs>
-          <linearGradient id="paint0_linear" x1="50%" y1="0%" x2="50%" y2="100%" gradientUnits="userSpaceOnUse">
-            <stop stopColor="#332A82"/>
-            <stop offset="1" stopColor="#3360A4"/>
-          </linearGradient>
-        </defs>
-        {/* Forme principale du blob */}
-        <path 
-          d="
-            M0 30 
-            C0 13.4315 13.4315 0 30 0 
-            H970
-            C986.569 0 1000 13.4315 1000 30
-            V150
-            C1000 160 995 170 985 173
-            L800 220
-            C750 235 700 245 650 250
-            L450 280
-            C350 295 250 305 150 310
-            C100 312.5 50 315 25 300
-            L0 290
-            V30
-            Z
-          "
-          fill="url(#paint0_linear)"
-        />
-        {/* Vague supérieure - ajustée pour rester dans les limites */}
-        <path 
-          d="
-            M800 120
-            C750 120 730 200 730 200
-            C780 190 830 175 830 175
-            L880 160
-            L920 150
-            C940 150 942 130 938 125
-            C938 125 850 120 800 120
-          "
-          fill="#4B81B7"
-          opacity="0.85"
-        />
-        {/* Vague inférieure - ajustée pour rester dans les limites */}
-        <path 
-          d="
-            M280 200
-            C284 150 150 100 150 100
-            C130 90 160 180 160 200
-            C160 220 165 240 163 260
-            C160 280 170 290 175 295
-            C175 295 276 250 280 200
-          "
-          fill="#5F51E2"
-          opacity="0.85"
-        />
-      </svg>
+      {/* Blob SVG */}
+      <div className="absolute inset-0 w-[120%] h-[130%] -left-[10%] overflow-hidden">
+        <svg
+          className="w-full h-full"
+          viewBox="0 0 717 877"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          preserveAspectRatio="none"
+        >
+          <defs>
+            <linearGradient id="paint0_linear" x1="50%" y1="0%" x2="50%" y2="100%" gradientUnits="userSpaceOnUse">
+              <stop stopColor="#332A82"/>
+              <stop offset="1" stopColor="#3360A4"/>
+            </linearGradient>
+          </defs>
+          {/* Forme principale du blob */}
+          <path 
+            d="
+              M0 30 
+              C0 13.4315 13.4315 0 30 0 
+              H970
+              C986.569 0 1000 13.4315 1000 30
+              V150
+              C1000 160 995 170 985 173
+              L800 220
+              C750 235 700 245 650 250
+              L450 280
+              C350 295 250 305 150 310
+              C100 312.5 50 315 25 300
+              L0 290
+              V30
+              Z
+            "
+            fill="url(#paint0_linear)"
+          />
+          {/* Vague supérieure - ajustée pour rester dans les limites */}
+          <path 
+            d="
+              M800 120
+              C750 120 730 200 730 200
+              C780 190 830 175 830 175
+              L880 160
+              L920 150
+              C940 150 942 130 938 125
+              C938 125 850 120 800 120
+            "
+            fill="#4B81B7"
+            opacity="0.85"
+          />
+          {/* Vague inférieure - ajustée pour rester dans les limites */}
+          <path 
+            d="
+              M280 200
+              C284 150 150 100 150 100
+              C130 90 160 180 160 200
+              C160 220 165 240 163 260
+              C160 280 170 290 175 295
+              C175 295 276 250 280 200
+            "
+            fill="#5F51E2"
+            opacity="0.85"
+          />
+        </svg>
+      </div>
 
-      {/* Contenu */}
-      <div className="w-full min-h-[400px] md:min-h-[450px] lg:min-h-[500px] relative">
-        {/* Header */}
+      {/* Content */}
+      <div className="relative w-full min-h-[450px] sm:min-h-[500px] lg:min-h-[550px]">
+        {/* Header with hamburger menu */}
         <header className="bg-transparent w-full relative z-50">
           <div className="w-[90%] lg:w-[80%] mx-auto py-4">
             {/* Version Mobile */}
@@ -123,7 +122,7 @@ const HeaderHero = () => {
                 } transition-all duration-300 ease-in-out overflow-hidden bg-blue-900/90 backdrop-blur-sm mt-4 rounded-lg`}
               >
                 <nav className="flex flex-col items-center py-4 space-y-4">
-                  <a className="font-bold text-white text-base hover:text-gray-200 transition-colors">Option 1engras</a>
+                  <a className="font-bold text-white text-base hover:text-gray-200 transition-colors">Option 1en gras</a>
                   <a className="text-white text-base hover:text-gray-200 transition-colors">Option2plusoumoinslong</a>
                   <a className="text-white text-base hover:text-gray-200 transition-colors">Option3encorepluslonguequeopt2</a>
                   <a className="text-white text-base hover:text-gray-200 transition-colors">sizelikeopt1</a>
@@ -148,31 +147,45 @@ const HeaderHero = () => {
           </div>
         </header>
 
-        {/* Hero */}
-        <div className="max-w-3xl mx-auto text-center flex flex-col md:flex-row items-center py-4 px-4">
-          <div className="mb-6 md:mb-0">
-            <h1 className="text-orange-500 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-              Votre Job board 100%, dédié au secteur CARGO
-            </h1>
-            <p className="mb-6 text-white text-base sm:text-lg md:text-xl">
-              Découvrez tous les jobs disponibles, Vite Cargo !
-            </p>
-          </div>
-          <div className="w-full md:w-[30px] lg:w-8"></div>
-          <div className="flex-col space-y-2 w-full md:w-auto">
-            <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
-              <input
-                type="text"
-                placeholder="Recherchez un job"
-                className="px-4 py-2 rounded w-full sm:w-64 text-black bg-white/90 backdrop-blur-sm focus:bg-white transition-colors"
-              />
-              <button className="bg-orange-500 hover:bg-orange-600 px-4 py-2 rounded text-white transition-colors">
-                Rechercher
+        {/* Hero Content */}
+        <div className="max-w-5xl mx-auto px-3 sm:px-6 pt-6 sm:pt-12 pb-8 sm:pb-12">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-12">
+            {/* Text Section */}
+            <div className="w-full lg:w-3/5 text-center lg:text-left">
+              <div className="relative">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 text-orange-500 leading-tight">
+                  Votre Job board 100%,
+                  <br className="hidden sm:block" /> 
+                  <span className="relative inline-block">
+                    dédié au secteur CARGO
+                    <div className="absolute -bottom-1 left-0 w-full h-1 bg-orange-500 rounded-full transform scale-x-0 animate-expand"></div>
+                  </span>
+                </h1>
+                <p className="text-base sm:text-lg md:text-xl text-white mb-6 opacity-90">
+                  Découvrez tous les jobs disponibles, Vite Cargo !
+                </p>
+              </div>
+            </div>
+
+            {/* Search Section */}
+            <div className="w-full lg:w-2/5 space-y-3 bg-white/5 backdrop-blur-sm p-4 rounded-lg shadow-lg">
+              <div className="flex flex-col sm:flex-row gap-2">
+                <input
+                  type="text"
+                  placeholder="Recherchez un job"
+                  className="flex-1 px-4 py-3 text-sm rounded text-black bg-white/90 backdrop-blur-sm focus:bg-white transition-colors focus:outline-none focus:ring-2 focus:ring-orange-500"
+                />
+                <button className="w-full sm:w-auto bg-orange-500 hover:bg-orange-600 px-4 py-3 rounded text-white text-sm transition-colors font-medium">
+                  Rechercher
+                </button>
+              </div>
+              <button className="w-full bg-gradient-to-r from-blue-500 to-blue-700 text-white px-4 py-3 rounded-lg shadow-md hover:opacity-90 transition text-sm font-medium flex items-center justify-center gap-2">
+                <span>un cont enu que onnelipat</span>
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
               </button>
             </div>
-            <button className="w-full sm:w-auto text-white px-6 py-2 rounded-lg shadow-md hover:opacity-90 transition bg-gradient-to-r from-blue-400 to-blue-800">
-              un cont enu que onnelipat
-            </button>
           </div>
         </div>
       </div>
